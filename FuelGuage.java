@@ -29,21 +29,21 @@ public class FuelGuage
      * @param other the {@code FuelGuage} to copy
      */
     public FuelGuage(FuelGuage other) {
-        this.currentFuel = other.currentFuel;
+        currentFuel = other.currentFuel;
     }
 
     /**
      * Default constuctor, constructs a FuelGuage with a full tank (15 gallons).
      */
     public FuelGuage() {
-        this.currentFuel = MAX_FUEL;
+        currentFuel = MAX_FUEL;
     }
 
     /**
      * Completely fills the fuel tank to its maximum capacity of 15 gallons.
      */
     public void fillTank() {
-        this.currentFuel = MAX_FUEL;
+        currentFuel = MAX_FUEL;
     }
 
     /**
@@ -51,8 +51,8 @@ public class FuelGuage
      * 15 gallons.
      */
     public void addFuel() {
-        if (this.currentFuel < MAX_FUEL) {
-            this.currentFuel++;
+        if (currentFuel < MAX_FUEL) {
+            currentFuel++;
         }
     }
 
@@ -63,8 +63,8 @@ public class FuelGuage
      * @return true if fuel was successfully used; false if no fuel remains
      */
     public boolean useFuel() {
-        if (this.currentFuel > 0) {
-            this.currentFuel--;
+        if (currentFuel > 0) {
+            currentFuel--;
             return true;
         } else {
             return false;
@@ -77,7 +77,7 @@ public class FuelGuage
      * @return the current fuel level
      */
     public int getFuel() {
-        return this.currentFuel;
+        return currentFuel;
     }
 
     /**
@@ -88,6 +88,6 @@ public class FuelGuage
      */
     @Override
     public String toString() {
-        return "Current fuel: " + this.currentFuel;
+        return "Current fuel: " + currentFuel;
     }
 }

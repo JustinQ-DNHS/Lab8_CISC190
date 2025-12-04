@@ -31,7 +31,7 @@ public class Odometer
      */
     public Odometer(int mileage, FuelGuage object) {
         this.mileage = mileage % MAX_MILEAGE;
-        this.fuel = new FuelGuage(object);
+        fuel = new FuelGuage(object);
     }
 
     /**
@@ -41,8 +41,8 @@ public class Odometer
      * @param object the FuelGuage to associate with this odometer
      */
     public Odometer(FuelGuage object) {
-        this.mileage = 0;
-        this.fuel = new FuelGuage(object);
+        mileage = 0;
+        fuel = new FuelGuage(object);
     }
 
     /**
@@ -54,14 +54,14 @@ public class Odometer
      * If fuel runs out, a message is printed instead of advancing mileage.
      */
     public void drive() {
-        if (++this.milesPerGallon < this.MILES_PER_GALLON) {
-            this.mileage = (this.mileage < MAX_MILEAGE) ? this.mileage += 1 : 0;
-            System.out.println(this.toString());
+        if (++milesPerGallon < MILES_PER_GALLON) {
+            mileage = (mileage < MAX_MILEAGE) ? mileage += 1 : 0;
+            System.out.println(this);
         } else {
             if (fuel.useFuel()) {
-                this.milesPerGallon = 0;
-                this.mileage = (this.mileage < MAX_MILEAGE) ? this.mileage += 1 : 0;
-                System.out.println(this.toString());
+                milesPerGallon = 0;
+                mileage = (mileage < MAX_MILEAGE) ? mileage += 1 : 0;
+                System.out.println(this);
             } else {
                 System.out.println("Out of gas!");
             }
@@ -73,8 +73,8 @@ public class Odometer
      * the miles-per-gallon counter used for tracking fuel consumption.
      */
     public void fillGas() {
-        this.fuel.fillTank();
-        this.milesPerGallon = 0;
+        fuel.fillTank();
+        milesPerGallon = 0;
     }
 
     /**
@@ -92,7 +92,7 @@ public class Odometer
      * @return the number of gallons of fuel left
      */
     public int getFuel() {
-        return this.fuel.getFuel();
+        return fuel.getFuel();
     }
 
     /**
@@ -101,7 +101,7 @@ public class Odometer
      * @return the mileage value
      */
     public int getMileage() {
-        return this.mileage;
+        return mileage;
     }
 
     /**
@@ -112,6 +112,8 @@ public class Odometer
      */
     @Override
     public String toString() {
-        return String.format("Mileage: \t%d, Fuel (Gal Left): %d", this.mileage, this.fuel.getFuel());
+        return String.format("Mileage: \t%d, Fuel (Gal Left): %d",
+                            mileage, fuel.getFuel()
+                            );
     }
 }

@@ -25,7 +25,7 @@ public class CarpetCost
      * @return The cost to install the carpet for the entire room
      */
     public double getCost() {
-        return this.size.getArea() * costPerSqFt;
+        return size.getArea() * costPerSqFt;
     }
     /**
      * toString method for CarpetCost that makes everything looks nice
@@ -34,8 +34,9 @@ public class CarpetCost
      */
     @Override
     public String toString() {
-        return String.format("%s\nThe cost per sq ft is: $%.2f\n" + 
-                            "The total cost is: $%.2f", this.size.toString(),
-                            this.costPerSqFt, this.getCost());
+        return String.format("%s\nThe cost per sq ft is: $%,.2f\n" + 
+                            "The total cost is: $%,.2f", size.toString(),
+                            costPerSqFt, getCost()
+                            );
     }
 }

@@ -44,8 +44,8 @@ public class RoomSize
      */
     @Override
     public String toString() {
-        return String.format("Room Name: %s\nLength: %.1f\nWidth:%.1f\n" +
-                            "Area: %.2f", this.name, this.length, this.width,
-                            this.getArea());
+        return String.format("Room Name: %s\nLength: %,.1f\nWidth: %,.1f\n" +
+                            "Area: %,.2f", name, length, width, getArea()
+                            );
     }
 }
